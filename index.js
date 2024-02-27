@@ -41,7 +41,7 @@ const processCSV = (filePath) => {
         maxVersionAllResults[key] = row;
       }
 
-      // if it doesnt exists in the grouped results then add it
+      // if it doesnt exists in the grouped results then create the inital array
       if (!groupedResults.hasOwnProperty(row[FIELDS.INSURANCE_COMPANY])) {
         groupedResults[row[FIELDS.INSURANCE_COMPANY]] = [];
       }
