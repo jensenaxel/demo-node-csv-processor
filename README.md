@@ -1,2 +1,15 @@
 # demo-node-csv-processor
-Shows how to parse a directory, pull the csv files, and create an output folder with separated csvs
+
+To run the project do the following.
+
+```
+nvm use 18
+npm install
+
+node index.js
+```
+
+that will output the files into *files/outbound/* with the contents sorted by last name, and only the highest version
+kept.
+
+

@@ -1,0 +1,29 @@
+{
+  "name": "demo-node-csv-processor",
+  "version": "1.0.0",
+  "description": "Shows how to parse a directory, pull the csv files, and create an output folder with separated csvs",
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "index.js",
+  "scripts": {
+    "run": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jensenaxel/demo-node-csv-processor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jensenaxel/demo-node-csv-processor/issues"
+  },
+  "homepage": "https://github.com/jensenaxel/demo-node-csv-processor#readme",
+  "dependencies": {
+    "csv": "^6.3.6",
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "prettier": "^3.1.1"
+  }
+}
