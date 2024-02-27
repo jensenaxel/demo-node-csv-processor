@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 const csv = require("csv-parser");
 const { createObjectCsvWriter } = require("csv-writer");
 
@@ -101,9 +102,8 @@ const sortByLastNameFirstNameAscending = (a, b) => {
 /*
 NOTES:
 
-This is an example usage to parse the full csv and have it output smaller files.
-Ideally you would create something that is either going to grab all results from a directory and only get
-csv files, or you're going to get all the files from an s3 bucket and parse it the same way.
+This is an example usage loops over a defined directory and only grabs csv files.
+You may end up making this a lamba or something that gets all the files from an s3 bucket and parse it the same way.
 if using an s3 bucket loading the csv would look slightly different than using the "fs" library.
 
 Depending on the amount of files you're dealing with you may want to have these files in a daily folder by date that gets
@@ -114,4 +114,25 @@ files/outbound/02-27-2024/
 */
 
 // Example usage:
-processCSV(`${INBOUND_FILES_DIR}/demo-1.csv`);
+// Function to loop through directory and process each CSV file
+const processDirectory = (directoryPath) => {
+  // Read directory contents
+  fs.readdir(directoryPath, (err, files) => {
+    if (err) {
+      console.error("Error reading directory:", err);
+      return;
+    }
+
+    // Process each file
+    files.forEach((file) => {
+      // Check if the file is a CSV file
+      if (path.extname(file).toLowerCase() === ".csv") {
+        const filePath = path.join(directoryPath, file);
+        processCSV(filePath);
+      }
+    });
+  });
+};
+
+// Call the function to process the directory
+processDirectory(INBOUND_FILES_DIR);
