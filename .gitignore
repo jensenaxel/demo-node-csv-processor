@@ -1,5 +1,7 @@
 .idea
 
+files/outbound
+
 # Logs
 logs
 *.log
